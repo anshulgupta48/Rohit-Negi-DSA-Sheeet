@@ -20,7 +20,7 @@ class Solution{
         Node* temp = head;
         Node* newNode = new Node(x);
         
-        if(head == NULL) {
+        if(temp == NULL) {
             return newNode;
         }
         

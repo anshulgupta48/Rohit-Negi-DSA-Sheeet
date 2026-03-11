@@ -22,6 +22,7 @@ class Solution{
         
         while(temp != NULL) {
             temp = temp->next;
+            
             if(temp == head) {
                 return true;
             }
