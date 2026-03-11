@@ -21,10 +21,9 @@ class Solution{
         int count = 1;
         
         if(x == 1) {
-            head->next->prev = NULL;
-            head = head->next;
-            head->prev = NULL;
-            return head;
+            temp->next->prev = NULL;
+            temp = temp->next;
+            return temp;
         }
         
         while(count < x-1) {
@@ -33,15 +32,17 @@ class Solution{
         }
         
         if(temp->next->next == NULL) {
-            temp->next->prev = NULL;
+            Node* nodeToDelete = temp->next;
+            nodeToDelete->prev = NULL;
+            nodeToDelete->next = NULL;
             temp->next = NULL;
             return head;
         }
         
         Node* nodeToDelete = temp->next;
-        temp->next = nodeToDelete->next;
-        temp->next->prev = nodeToDelete->prev;
         nodeToDelete->prev = NULL;
+        nodeToDelete->next->prev = temp;
+        temp->next = nodeToDelete->next;
         nodeToDelete->next = NULL;
         return head;
     }

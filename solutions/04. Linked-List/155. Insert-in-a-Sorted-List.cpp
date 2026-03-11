@@ -20,8 +20,12 @@ class Solution{
         Node* temp = head;
         Node* newNode = new Node(key);
         
-        if(head->data > key) {
-            newNode->next = head;
+        if(temp == NULL) {
+            return newNode;
+        }
+        
+        if(temp->data > newNode->data) {
+            newNode->next = temp;
             return newNode;
         }
         
@@ -31,7 +35,6 @@ class Solution{
                 temp->next = newNode;
                 return head;
             }
-            
             temp = temp->next;
         }
         
